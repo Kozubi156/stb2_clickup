@@ -1,7 +1,5 @@
 package pl.akademiaqa.properties;
 
-import static java.lang.System.getProperty;
-
 import java.util.ResourceBundle;
 
 public class ClickUpProperties {
@@ -13,7 +11,7 @@ public class ClickUpProperties {
         if (getProperty(TOKEN).isEmpty() || getProperty(TOKEN).startsWith("YOUR")) {
             return System.getProperty("TOKEN");
         } else {
-            return getProperties(TOKEN);
+            return getProperty(TOKEN);
         }
     }
 
@@ -21,11 +19,11 @@ public class ClickUpProperties {
         if (getProperty(TEAM_ID).isEmpty() || getProperty(TEAM_ID).startsWith("YOUR")) {
             return System.getProperty("TEAM_ID");
         } else {
-            return getProperties(TEAM_ID);
+            return getProperty(TEAM_ID);
         }
     }
 
-    private static String getProperties(String key) {
+    private static String getProperty(String key) {
         return ResourceBundle.getBundle("clickup").getString(key);
     }
 }
